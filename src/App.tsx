@@ -45,18 +45,18 @@ export default function App() {
 
   const spendTokens = (amount: number) => {
     if (user.tokens >= amount) {
-      setUser(prev => ({ ...prev, tokens: prev.tokens - amount }));
+      setUser((prev: UserProfile) => ({ ...prev, tokens: prev.tokens - amount }));
       return true;
     }
     return false;
   };
 
   const addTokens = (amount: number) => {
-    setUser(prev => ({ ...prev, tokens: prev.tokens + amount }));
+    setUser((prev: UserProfile) => ({ ...prev, tokens: prev.tokens + amount }));
   };
 
   const handleWalletConnect = (address: string) => {
-    setUser(prev => ({ ...prev, address }));
+    setUser((prev: any) => ({ ...prev, address }));
   };
 
   return (
@@ -411,7 +411,7 @@ export default function App() {
               <h3 className="font-serif italic text-3xl font-bold mb-2">Join the Squirrely Squad</h3>
               <p className="text-gray-400 text-sm">Get notified about new chapters, vlog drops, and exclusive token giveaways.</p>
             </div>
-            <form className="flex w-full max-w-md gap-3" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex w-full max-w-md gap-3" onSubmit={(e: { preventDefault: () => any; }) => e.preventDefault()}>
               <div className="flex-1 relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
                 <input 
